@@ -7,7 +7,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const SIMULATIONS = 'simulations';
-const url = 'mongodb://prestasoc:prestasoc@localhost:27017/prestasoc';
+const url = 'mongodb://prestasoc:prestasoc@mongo:27017/prestasoc';
 let db;
 MongoClient.connect(url, (err, database) => {
   if (err) {
