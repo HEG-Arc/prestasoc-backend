@@ -1,0 +1,24 @@
+version: '2'
+services:
+  mongo:
+    restart: always
+    image: mongo:3.4
+    command: --auth
+    # ports:
+    #   - 27017:27017
+    volumes:
+     - ./data:/data/db
+  node:
+    restart: always
+    build: .
+    ports:
+     - 8000:8000
+    depends_on:
+      - mongo
+  # mongo-ui:
+  #   image: zippa/admin-mongo
+  #   depends_on:
+  #     - mongo
+  #   ports:
+  #     - 8081:8081
+  #   env_file: .env
